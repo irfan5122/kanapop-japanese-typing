@@ -991,7 +991,7 @@ function App() {
                 autoComplete="off"
                 autoCapitalize="off"
                 spellCheck={false}
-                inputMode="latin"
+                inputMode="text"
               />
 
               {input && (
