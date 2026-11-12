@@ -258,23 +258,29 @@ Planned improvements include:
 - Offline support
 - Mobile app version
 
-## Contributions and Reuse
+## Community Contributions
 
-This repository is public for viewing through GitHub. Public visibility does not
-mean the source code is open source or that the copyright holder grants a general
-license to reuse it.
+Suggestions, bug reports, and pull requests are welcome. Feel free to help improve
+KanaPop, add features, fix bugs, and share your improvements for noncommercial
+purposes.
 
-GitHub's Terms of Service give users certain platform-specific rights for public
-repositories, including viewing and forking. No additional permission is granted
-to copy, modify, redistribute, publish, sublicense, or commercially exploit
-KanaPop outside the scope of those GitHub platform rights without prior written
-permission from the copyright holder.
+By submitting a pull request, you confirm that you have the rights to contribute
+the submitted work and agree to make that contribution available under the same
+license as this project: PolyForm Noncommercial License 1.0.0.
 
-## License
+## Use and License
 
-KanaPop is proprietary software. Copyright (c) 2026 Ahmed Irfan N. All rights
-reserved. No open-source license is granted. See [LICENSE](./LICENSE) for the
-proprietary rights notice.
+KanaPop is source-available under the
+[PolyForm Noncommercial License 1.0.0](https://polyformproject.org/licenses/noncommercial/1.0.0).
+
+You may use, modify, and share the project for noncommercial purposes under that
+license. Commercial use is not permitted without separate prior written
+permission from the copyright holder. This includes selling copies or modified
+versions, or using the project as part of a commercial offering.
+
+This is a noncommercial source-available project, not an OSI-approved open-source
+project: the license restricts commercial use. See [LICENSE](./LICENSE) for the
+full license text.
 
 Third-party dependencies, fonts, and assets remain subject to their own licenses
 and terms.
