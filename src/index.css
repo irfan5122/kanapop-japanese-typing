@@ -120,6 +120,42 @@ select {
   font-weight: 700;
 }
 
+.topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.install-button {
+  min-height: 38px;
+  padding: 0 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  border: 1px solid #d8efca;
+  border-radius: 10px;
+  color: var(--green-dark);
+  background: #f2fbea;
+  font-size: 12px;
+  font-weight: 900;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.install-button:hover {
+  background: #e7f7dc;
+}
+
+.install-button:active {
+  transform: translateY(1px);
+}
+
+.install-button span:first-child {
+  font-size: 17px;
+  line-height: 1;
+}
+
 .stats {
   display: flex;
   gap: 20px;
@@ -723,6 +759,103 @@ footer {
   letter-spacing: 0.2px;
 }
 
+/* INSTALL HELP */
+
+.install-help-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: rgba(25, 35, 20, 0.42);
+}
+
+.install-help {
+  position: relative;
+  width: min(100%, 390px);
+  padding: 28px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: white;
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.18);
+  text-align: center;
+}
+
+.install-help-close {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  width: 34px;
+  height: 34px;
+  border: 0;
+  border-radius: 9px;
+  color: #888;
+  background: #f4f4f4;
+  font-size: 23px;
+  cursor: pointer;
+}
+
+.install-help-icon {
+  width: 54px;
+  height: 54px;
+  margin: 0 auto 12px;
+  display: grid;
+  place-items: center;
+  border-radius: 15px;
+  color: white;
+  background: var(--green);
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.install-help h2 {
+  margin: 0;
+  color: #333;
+  font-size: 21px;
+  font-weight: 900;
+}
+
+.install-help p {
+  margin: 8px 0 20px;
+  color: #888;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.install-help-steps {
+  display: grid;
+  gap: 6px;
+  text-align: left;
+}
+
+.install-help-steps strong {
+  margin-top: 8px;
+  color: #555;
+  font-size: 12px;
+}
+
+.install-help-steps span {
+  color: #888;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.install-help-done {
+  width: 100%;
+  min-height: 46px;
+  margin-top: 22px;
+  border: 0;
+  border-radius: 11px;
+  color: white;
+  background: var(--green);
+  box-shadow: 0 3px 0 var(--green-dark);
+  font-size: 13px;
+  font-weight: 900;
+  cursor: pointer;
+}
+
 /* SHAKE */
 
 .shake {
@@ -784,6 +917,17 @@ footer {
 
   .brand-subtitle {
     display: none;
+  }
+
+  .topbar-actions {
+    gap: 10px;
+  }
+
+  .install-button {
+    min-height: 34px;
+    padding: 0 9px;
+    gap: 4px;
+    font-size: 11px;
   }
 
   .stats {
