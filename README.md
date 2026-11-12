@@ -260,18 +260,24 @@ Planned improvements include:
 
 ## Contributions and Reuse
 
-This repository is public for viewing. Public visibility does not mean the source code is open source or available for reuse.
+This repository is public for viewing through GitHub. Public visibility does not
+mean the source code is open source or that the copyright holder grants a general
+license to reuse it.
 
-Please do not submit copied code, modifications, or derivative works for inclusion without obtaining prior written permission from the copyright holder.
+GitHub's Terms of Service give users certain platform-specific rights for public
+repositories, including viewing and forking. No additional permission is granted
+to copy, modify, redistribute, publish, sublicense, or commercially exploit
+KanaPop outside the scope of those GitHub platform rights without prior written
+permission from the copyright holder.
 
 ## License
 
-KanaPop is proprietary software. All rights are reserved by the copyright holder, Ahmed Irfan N.
+KanaPop is proprietary software. Copyright (c) 2026 Ahmed Irfan N. All rights
+reserved. No open-source license is granted. See [LICENSE](./LICENSE) for the
+proprietary rights notice.
 
-You may view this repository on GitHub, but no permission is granted to copy, modify, redistribute, sublicense, or use the project or its substantial parts commercially without prior written permission.
-
-See [LICENSE](./LICENSE) for the full notice. Third-party dependencies and assets remain subject to their own licenses.
-
+Third-party dependencies, fonts, and assets remain subject to their own licenses
+and terms.
 ## Author
 
 **Ahmed Irfan N.**
