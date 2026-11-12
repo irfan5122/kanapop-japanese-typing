@@ -258,32 +258,19 @@ Planned improvements include:
 - Offline support
 - Mobile app version
 
-## Contributing
+## Contributions and Reuse
 
-Contributions, suggestions, and improvements are welcome.
+This repository is public for viewing. Public visibility does not mean the source code is open source or available for reuse.
 
-To contribute:
-
-```bash
-git clone https://github.com/irfan5122/kanapop-japanese-typing.git
-cd kanapop-japanese-typing
-npm install
-npm run dev
-```
-
-Create a new branch for your changes:
-
-```bash
-git checkout -b feature/your-feature
-```
-
-Make your changes, test them, and submit a pull request.
+Please do not submit copied code, modifications, or derivative works for inclusion without obtaining prior written permission from the copyright holder.
 
 ## License
 
-This project is currently available for personal and educational use.
+KanaPop is proprietary software. All rights are reserved by the copyright holder, Ahmed Irfan N.
 
-A formal open-source license may be added in the future.
+You may view this repository on GitHub, but no permission is granted to copy, modify, redistribute, sublicense, or use the project or its substantial parts commercially without prior written permission.
+
+See [LICENSE](./LICENSE) for the full notice. Third-party dependencies and assets remain subject to their own licenses.
 
 ## Author
 
