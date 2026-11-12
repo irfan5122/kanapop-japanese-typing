@@ -683,9 +683,10 @@ select {
 /* FOOTER */
 
 footer {
-  padding: 20px;
+  padding: 20px 16px 24px;
 
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 
@@ -695,9 +696,17 @@ footer {
 
   font-size: 12px;
   font-weight: 700;
+  text-align: center;
 }
 
-footer span {
+.footer-tagline {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 7px;
+}
+
+.footer-tagline span {
   color: var(--green);
 
   font-family:
@@ -705,6 +714,13 @@ footer span {
     sans-serif;
 
   font-size: 17px;
+}
+
+.copyright {
+  color: #b0b0b0;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
 }
 
 /* SHAKE */

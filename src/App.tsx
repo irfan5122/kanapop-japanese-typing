@@ -1107,10 +1107,14 @@ function App() {
       {/* FOOTER */}
 
       <footer>
-        <span>あ</span>
+        <div className="footer-tagline">
+          <span>あ</span>
+          Keep practicing — small steps every day.
+        </div>
 
-        Keep practicing — small
-        steps every day.
+        <div className="copyright">
+          © {new Date().getFullYear()} Ahmed Irfan. All rights reserved.
+        </div>
       </footer>
     </div>
   );
