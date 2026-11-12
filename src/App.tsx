@@ -3,6 +3,11 @@ import "./index.css";
 
 type KanaMap = Record<string, string>;
 
+type BeforeInstallPromptEvent = Event & {
+  prompt: () => Promise<void>;
+  userChoice: Promise<{ outcome: "accepted" | "dismissed"; platform: string }>;
+};
+
 type HiraganaMode =
   | "basic"
   | "dakuten"
@@ -661,6 +666,11 @@ function playSound(correct: boolean) {
 }
 
 function App() {
+  const [installPrompt, setInstallPrompt] =
+    useState<BeforeInstallPromptEvent | null>(null);
+  const [showInstallHelp, setShowInstallHelp] = useState(false);
+  const [isInstalled, setIsInstalled] = useState(false);
+
   const [mode, setMode] =
     useState<HiraganaMode>("basic");
 
@@ -716,8 +726,49 @@ function App() {
         );
 
   useEffect(() => {
+    const isStandalone =
+      window.matchMedia("(display-mode: standalone)").matches ||
+      (window.navigator as Navigator & { standalone?: boolean }).standalone === true;
+
+    setIsInstalled(isStandalone);
+
+    const handleBeforeInstallPrompt = (event: Event) => {
+      event.preventDefault();
+      setInstallPrompt(event as BeforeInstallPromptEvent);
+    };
+
+    const handleAppInstalled = () => {
+      setIsInstalled(true);
+      setInstallPrompt(null);
+      setShowInstallHelp(false);
+    };
+
+    window.addEventListener("beforeinstallprompt", handleBeforeInstallPrompt);
+    window.addEventListener("appinstalled", handleAppInstalled);
+
+    return () => {
+      window.removeEventListener("beforeinstallprompt", handleBeforeInstallPrompt);
+      window.removeEventListener("appinstalled", handleAppInstalled);
+    };
+  }, []);
+
+  useEffect(() => {
     inputRef.current?.focus();
   }, [question]);
+
+  async function handleInstallClick() {
+    if (installPrompt) {
+      await installPrompt.prompt();
+      const choice = await installPrompt.userChoice;
+      if (choice.outcome === "accepted") {
+        setIsInstalled(true);
+      }
+      setInstallPrompt(null);
+      return;
+    }
+
+    setShowInstallHelp(true);
+  }
 
   function changeMode(
     newMode: HiraganaMode
@@ -837,7 +888,20 @@ function App() {
           </div>
         </div>
 
-        <div className="stats">
+        <div className="topbar-actions">
+          {!isInstalled && (
+            <button
+              className="install-button"
+              type="button"
+              onClick={handleInstallClick}
+              aria-label="Install KanaPop"
+            >
+              <span aria-hidden="true">↓</span>
+              <span>Install</span>
+            </button>
+          )}
+
+          <div className="stats">
           <div className="stat">
             <span className="stat-icon">
               🔥
@@ -857,8 +921,55 @@ function App() {
               {accuracy}%
             </strong>
           </div>
+          </div>
         </div>
       </header>
+
+      {/* INSTALL HELP */}
+      {showInstallHelp && !isInstalled && (
+        <div
+          className="install-help-backdrop"
+          role="presentation"
+          onClick={() => setShowInstallHelp(false)}
+        >
+          <section
+            className="install-help"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="install-help-title"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <button
+              className="install-help-close"
+              type="button"
+              onClick={() => setShowInstallHelp(false)}
+              aria-label="Close install instructions"
+            >
+              ×
+            </button>
+            <div className="install-help-icon">あ</div>
+            <h2 id="install-help-title">Install KanaPop</h2>
+            <p>
+              Add KanaPop to your device for a quick, app-like experience.
+            </p>
+            <div className="install-help-steps">
+              <strong>On iPhone or iPad</strong>
+              <span>Open this page in Safari, tap Share, then choose “Add to Home Screen”.</span>
+              <strong>On Android</strong>
+              <span>Open the browser menu (⋮) and choose “Install app” or “Add to Home screen”.</span>
+              <strong>On desktop</strong>
+              <span>Look for the install icon in your browser’s address bar or menu.</span>
+            </div>
+            <button
+              className="install-help-done"
+              type="button"
+              onClick={() => setShowInstallHelp(false)}
+            >
+              Got it
+            </button>
+          </section>
+        </div>
+      )}
 
       {/* MAIN */}
 
